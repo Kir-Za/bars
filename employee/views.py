@@ -107,13 +107,6 @@ class CommonDjedView(ListView):
     template_name = "common.html"
 
 
-class OnePadavanView(ListView):
-    """
-    Джедаи у которых более 1-го падавана
-    """
-    model = Djedai
-    template_name = "common.html"
-
-    def get_context_data(self, **kwargs):
-        self.object_list = Djedai.objects.filter(teacher__gt=1)
-        return super().get_context_data(**kwargs)
+def one_padavan(request):
+    djd_list = [x.name for x in Djedai.objects.all() if (x.teacher.count() > 1)]
+    return render(request, 'one.html', {"djd_list": djd_list})

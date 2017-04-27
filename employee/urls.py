@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import (index, CreateCandidateView, CandidateQuestionView, DjejSelectView, DjedCandView, AddPadavanView,
-                    CommonDjedView, OnePadavanView)
+                    CommonDjedView, one_padavan)
 
 urlpatterns = [
     url(r'^$', index, name="base_page"),
@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^dj_cand/(?P<pk>.*)$', DjedCandView.as_view(), name="list_cand"),
     url(r'^add_padavan/$', AddPadavanView.as_view()),
     url(r'^common/$', CommonDjedView.as_view(), name="data_list"),
-    url(r'^one_padavan/$', OnePadavanView.as_view(), name="data_one"),
+    url(r'^one_padavan/$', one_padavan, name="data_one"),
 
 ]
 
