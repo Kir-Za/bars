@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% for candidate in object_list %}
+        <p>
+            <form action="/add_padavan/" method="post">
+            {% csrf_token %}
+                {{ candidate.name }}
+                <input value="Посмотреть результаты испытания" onclick="alert('{{ candidate.answers }}')" type="button">
+                <input type="hidden" value="{{ candidate.id }}" name="candidate_id" />
+                <input type="hidden" value="{{ djedai }}" name="djed_id" />
+                <input type="submit" value="Добавить падавана">
+            </form>
+        </p>
+    {% endfor %}
+{% endblock %}

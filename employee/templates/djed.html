@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <form action="/dj_cand/" method="get">
+        <p>
+            <select  name="pk" size="3" required>
+                {% for djedai in object_list %}
+                <option value="{{ djedai.id }}">{{ djedai.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+   <p><input type="submit" value="Отправить"></p>
+  </form>
+{% endblock %}

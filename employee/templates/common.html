@@ -1,0 +1,6 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% for djedai in object_list %}
+        <p>Джедай: {{ djedai.name }}. Количество учеников {{ djedai.teacher.all|length }}</p>
+    {% endfor %}
+{% endblock %}
