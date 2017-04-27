@@ -48,7 +48,7 @@ class CandidateQuestionView(FormView, DetailView):
 
     def form_valid(self, form):
         cand = Candidate.objects.get(id=self.kwargs['pk'])
-        cand.answers = "Ответы на вопросы ордена: \n" + form.cleaned_data['answers']
+        cand.answers = form.cleaned_data['answers']
         cand.save()
         return super().form_valid(form)
 
